@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# 图片转为base64
+
 import os
 import glob
 import base64
