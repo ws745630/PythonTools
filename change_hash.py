@@ -42,7 +42,6 @@ def run_cmd(cmd=None):
 
 
 def change_file_hash(project_path=None):
-
     os.chdir(project_path)
     file_type_array = ['*.png', '*.jpg', '*.JPG', '*.gif', '*.mp4', '*.mp3']
     for file_name in file_type_array:
