@@ -73,7 +73,7 @@ def run():
     # if not project_path:
     #     print("UUProcess: no args for -p")
     change_file_hash(
-        project_path="/Users/wangcl/Downloads/BlockTankBattle/Assets")
+        project_path="/Users/wangcl/Desktop/word-game/WordGame/Assets")
 
 
 if __name__ == "__main__":
