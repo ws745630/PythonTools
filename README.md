@@ -28,7 +28,7 @@
 
 ### 3.`imageBase64`进行base64编码 
 
-### 4.`hiddenFolder`隐藏/显示 Mac OS系统的隐藏文件夹
+### 4.`hiddenFolder`隐藏/显示 Mac OS系统的隐藏文件夹/新系统可以使用shift+command+.进行显示隐藏
 
 
 ### 5.`chanage_hash`改变文件的hash值

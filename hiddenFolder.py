@@ -15,7 +15,6 @@ def get_command(key, value=""):
 
 
 if __name__ == '__main__':
-    
     os.access()
     #cmd =  "ls %s"%(path)
     # 读取当前文件夹的状态：FALSE 为不显示隐藏文件夹  TRUE显示隐藏文件夹

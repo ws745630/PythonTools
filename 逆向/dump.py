@@ -33,7 +33,7 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 DUMP_JS = os.path.join(script_dir, 'dump.js')
 
 User = 'root'
-Password = 'alpine'
+Password = 'qwer1234'
 Host = 'localhost'
 Port = 2222
 KeyFileName = None
