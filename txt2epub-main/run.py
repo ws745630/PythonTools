@@ -5,19 +5,23 @@ import re
 import glob
 import chardet
 import time
+import requests
 
  
 print('正在录入书籍数据')
 path = glob.glob('*.txt')
 filename = str(path)[2:-6]
-title_string = "大学刑法课" #re.search(r'(?<=《)[^》]+',filename)
+#bookname = bookauthor[0:bookauthor.rfind(' 作者：')]
+title_string = "大主宰锋传说" #re.search(r'(?<=《)[^》]+',filename)
 author_string = "无" #re.search(r'(?<=作者：).*',filename)[0]
 bookname = title_string
 txtname = bookname + ".txt"
 jpgname = bookname + ".jpeg"
 epubname = bookname + ".epub"
 kepubname = bookname + ".kepub.epub"
-title_string = bookname
+#title_string = bookname
+#author = bookauthor[bookauthor.rfind(' 作者：'):]
+#author_string = author.replace(' 作者：' , '')
 
 print('书名: '+bookname+'\n'+'作者: '+author_string)
 
@@ -25,12 +29,13 @@ os.system('mv *.txt "%s"' % (txtname))
 
 start = time.perf_counter()
 
+
 # 开始图片处理
 Your_Dir='./'
 Files=os.listdir(Your_Dir)
 for k in range(len(Files)):
     # 提取文件夹内所有文件的后缀
-    Files[k] = os.path.splitext(Files[k])[1]
+    Files[k]=os.path.splitext(Files[k])[1]
 
 # 你想要找的文件的后缀
 Str='.jpg'
@@ -52,7 +57,9 @@ def detectCode(path):
         dicts = chardet.detect(data)
     return dicts["encoding"]
 
-ecode = detectCode(path[0])
+path = txtname
+
+ecode = detectCode(path)
 print('文件编码：' + ecode)
 if ecode != 'utf-8' and ecode != 'UTF-8-SIG':
         f = open(txtname, 'r', encoding = "gb18030")
@@ -67,7 +74,7 @@ else:
 if __name__ == '__main__':
     
     print('开始分章以及处理多余内容')
-    f = open(path[0],'r', encoding="utf-8")
+    f = open(txtname,'r', encoding="utf-8")
     content = f.read()
     f.close
 
@@ -111,12 +118,13 @@ if __name__ == '__main__':
     #os.system('kindlegen -c1 -dont_append_source "%s" > a' % (epubname))
     os.system('kepubify "%s"' % (epubname))
     end_1 = time.perf_counter()
-    print('Running time: %s Seconds' % (end_1 - start_1))
-    print("删除残留文件......")
-    os.system('rm "%s"' % (txtname))
-    os.system('rm "%s"' % (jpgname))
-    os.system('rm a')
-    os.system('mv *.kepub.epub "%s"' % (kepubname))
-    os.system('mv "%s" ~/Desktop' % (epubname))
-    os.system('mv "%s" ~/Desktop' % (kepubname))
-    print("完成，收工，撒花！！🎉🎉")
+    #print('Running time: %s Seconds' % (end_1 - start_1))
+    # print("删除残留文件......")
+    # os.system('rm "%s"' % (txtname))
+    # os.system('rm "%s"' % (jpgname))
+    # #os.system('rm a')
+    # os.system('mv *.kepub.epub "%s"' % (kepubname))
+    # os.system('mv "%s" ~/Desktop' % (epubname))
+    # os.system('mv "%s" ~/Desktop' % (kepubname))
+    # #os.system("mv *.mobi /home/zzy/Desktop")
+    # print("完成，收工，撒花！！🎉🎉")

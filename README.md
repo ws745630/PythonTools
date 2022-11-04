@@ -1,34 +1,34 @@
-# txt2epub
-py、pandoc合力打造的txt转epub自动精排自动删除多余空格空行脚本！
+[TOC]
+# 功能说明
+### 1.生成iOS的AppIcon和MessageIcon
 
-### 2021 12.16 更新内容：
+**使用方法：**  
 
-1、支持kepub格式转换(可选)（依赖于kepubify）
+进入`createAppIcon.py`同级目录,在终端执行`python createAppIcon.py`  
 
-2、将run1.py合并到run.py,移除run2.py,需要用到菠萝包自动获取封面的功能请自行前往[https://github.com/Elaina-Alex/txt2epub](https://github.com/Elaina-Alex/txt2epub)分支进行使用
+该脚本有3种创建方式：
 
-### 2021 9.22  更新内容：
+- 1.创建AppIcon
+- 2.创建iMessageIcon
+- 3.同时创建AppIcon和iMessageIcon
 
-1、支持自动从起点下载封面（可选）
-### 2021 9.20  更新内容：
-1、新增<code>run1.py</code>以支持二级目录其中第一级为卷第二集为章，有需要可自行修改
-2、新增对“引子”“序言”“序章”“序”“楔子”等的章节索引。
-### 2021 7.16  更新内容：
-1、新增每种格式转换耗时显示
-2、新增kindlegen静默输出
-### 2021 6.21  更新内容：
-1、自动设置文件名为书名<br/>
-2、自动识别编码格式，不在需要手动设置<br/>
-3、支持生成mobi格式（调用kindlegen）<br/>
+然后会提示输入项目路径,把项目路径输入里面就会自动生成所需要的icon
 
-使用方法：<br/>
-首先安装pandoc,debian系：<code>apt install pandoc</code> | arch系：<code>pacman -S pandoc</code> | 其他：自行查阅<br/>
-下载本脚本将run.py和epub.css放在同一文件夹下<br/>
-然后将txt小说文件和小说封面一起放入run.py所在文件夹内<br/>
-用终端打开该文件夹，输入指令<br/>
-```bash
-python run.py
-```
-运行脚本
-### 本脚本目前仅支持jpg/jpeg格式的图片作为封面
-### 书籍元数据的书名是txt的文件名
+**注意事项**  
+1.创建**AppIcon**和**iMessageIcon**,需要传入项目的目录,这里一定是`Assets.xcassets`所在的上级目录,比如`/Users/mac/Desktop/FlipCard/FlipCard`;同理iMessage也是如此  
+2.选择**同时创建AppIcon和iMessageIcon**时，需传入的的项目所在的路径,比如上面的项目根路径 `/Users/mac/Desktop/FlipCard`;内部的项目命令需要遵循一定的规则,例如项目的工程名字叫`FlipCard ``iMessage`应该命令为`FlipCardMessage`  
+3.如果需要修改命名规则需修改`iMessageName`为项目Message文件夹的名称,比如上面的Message文件夹叫`FlipCardMessage`就把名称改过去
+
+### 2.`imageCompress`图片压缩 
+提供3中压缩方式：  
+
+- `default`:直接对图片进行80的质量压缩  
+- `tinify`:此压缩方式要申请key每月有500张额度  
+- `scale`:此方式对图片进行等比例缩放,默认0.8  
+
+### 3.`imageBase64`进行base64编码 
+
+### 4.`hiddenFolder`隐藏/显示 Mac OS系统的隐藏文件夹/新系统可以使用shift+command+.进行显示隐藏
+
+
+### 5.`chanage_hash`改变文件的hash值

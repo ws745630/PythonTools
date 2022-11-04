@@ -19,7 +19,7 @@ iMessageName = ""
 # 生成iMessage图标
 
 
-def createIconFile(ico1nPath, outPath):
+def createIconFile(iconPath, outPath):
     # 打开本地json文件
     with open(outPath, 'r') as f:
         data = json.load(f)
