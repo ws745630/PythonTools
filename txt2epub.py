@@ -7,6 +7,17 @@ import chardet
 import time
 import requests
 
+#去除特殊符号
+def remove_special_characters(text):
+    tokens = tokenize_text(text) #tokens为分词后的文本
+    pattern = re.compile('[{}]'.format(re.escape(string.punctuation))) #正则匹配特殊符号
+    print(pattern)
+    filtered_tokens = filter(None, [pattern.sub('', token) for token in tokens])
+    filtered_text = ' '.join(filtered_tokens)
+    return filtered_text
+
+#content = remove_special_characters(content)
+
  
 print('正在录入书籍数据')
 path = glob.glob('*.txt')
